@@ -1,0 +1,26 @@
+.characters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.chars-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-span {
+    padding: 0 10px;
+    cursor: pointer;
+    background-color: rgba(34, 29, 30, 0.404);
+    border-radius:  20%;
+}
+
+.active-page {
+    color: white;
+}

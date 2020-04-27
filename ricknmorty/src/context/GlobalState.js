@@ -1,5 +1,5 @@
-import {createContext, useReducer} from 'react'
-import {CharReducer, GET_CHARACTERS} from '../reducers/CharReducer'
+import React, {createContext, useState} from 'react'
+// import {CharReducer, GET_CHARACTERS} from '../reducers/CharReducer'
 
 const initState = {
     characters: []
@@ -7,22 +7,28 @@ const initState = {
 
 export const GlobalContext = createContext(initState)
 
-export const GlobalProvider = ({children}) => {{
-    const [state, dispatch] = useReducer(CharReducer, initState)
+export const GlobalContextProvider = ({children}) => {
+    const [characters, setCharacters] = useState(null);
+    const [chosenCharacter, setChosenCharacter] = useState('');
+    
 
-    function getCharsAction(characters) {
-        dispatch({
-            type: GET_CHARACTERS,
-            payload: characters
-        })
-    }
+   const getCharactersHandler = (chars) => {
+        setCharacters(chars)
+   }
+
+   const clickedCharacterHandler = (event, id) => {
+
+       setChosenCharacter(id)
+   }
 
     return (
         <GlobalContext.Provider value={{
-            users: state.users, 
-            getUsers
+            characters, 
+            chosenCharacter,
+            getCharactersHandler,
+            clickedCharacterHandler
         }}>
             {children}
         </GlobalContext.Provider>
     )
-}}
+}
