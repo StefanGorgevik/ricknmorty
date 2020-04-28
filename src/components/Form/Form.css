@@ -13,16 +13,21 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 3px;
+    color: whitesmoke
 }
 
 .form-btn {
-    width: 15%;
+    width: 10%;
     height: 30px;
     outline: black;
     border: 1px solid gray;
+    background-color: rgba(34, 16, 16, 0.411);
+    color: whitesmoke;
     border-radius: 10px;
+    cursor: pointer;
+    margin: 0 10px;
 }
 
 ::placeholder {
-    color: white;
+    color: grey;
 }

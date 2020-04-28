@@ -37,7 +37,7 @@ img {
     display: flex;
     transition: 2s;
 
-    width: 95%;
+    min-width: 95%;
 }
 
 .left-side {

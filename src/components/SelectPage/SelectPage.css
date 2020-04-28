@@ -1,0 +1,46 @@
+.select-page {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 20%;
+}
+
+.select-page label{ 
+    color: whitesmoke;
+}
+
+.pages-select {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    margin: 5px 3px;
+    color:whitesmoke;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.034) !important;
+    cursor: pointer;
+}
+
+.option-page {
+    margin:40px;
+    background: rgba(0,0,0,0.8);
+    color:#fff;
+    text-shadow:0 1px 0 rgba(0,0,0,0.4);
+}
+
+.page-span {
+    text-align: center;
+    margin: 0 3px;
+    cursor: pointer;
+    background-color: rgba(34, 29, 30, 0.808);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: grey;
+}
+
+.active-page {
+    color: white;
+}
