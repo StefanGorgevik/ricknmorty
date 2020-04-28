@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import './Characters.css'
 
@@ -6,61 +6,24 @@ import './Characters.css'
 import Character from '../Character/Character'
 
 const Characters = () => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [page, setPage] = useState(0);
-    const { getCharactersHandler, characters, clickedCharacterHandler } = useContext(GlobalContext)
-
-    const setPageHandler = (page) => {
-        setPage(page)
-    }
-
-    useEffect(() => {
-        setIsLoading(true);
-        console.log('useEffect')
-        const fetchData = () => {
-            fetch('https://rickandmortyapi.com/api/character/?page=' + page)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch.');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    setIsLoading(false);
-                    getCharactersHandler(data)
-                })
-                .catch(err => {
-                    console.log(err);
-                    setIsLoading(false);
-                });
-        }
-        fetchData()
-        // eslint-disable-next-line 
-    }, [page]);
-
-    const charClick = ( char) => {
-
-        console.log(char)
-        clickedCharacterHandler(char)
-    }
+    const { characters, clickedCharacterHandler, info, setPageHandler, isLoading, page } = useContext(GlobalContext)
 
     let content = <p>Loading...</p>
     let pages = []
 
 
-    if (!isLoading && characters) {
-        console.log(characters)
-        content = characters.results.map(char => {
+    if (!isLoading && characters && info) {
+        console.log(info)
+        content = characters.map(char => {
             return <Character
-                click={() => charClick(char.id)}
+                click={() => clickedCharacterHandler(char)}
                 key={char.id}
                 id={char.id}
                 char={char} />
         })
-        for (let i = 0; i < characters.info.pages; i++) {
+        for (let i = 1; i <= info.pages; i++) {
             pages.push(<span
                 onClick={() => setPageHandler(i)} key={'page' + i}
-
                 className={i !== page ? "page-span" : "active-page page-span"} > {i}</ span>)
         }
     }
@@ -79,3 +42,30 @@ const Characters = () => {
 }
 
 export default React.memo(Characters)
+
+
+ // useEffect(() => {
+    //     setIsLoading(true);
+    //     console.log('useEffect')
+    //     const fetchData = () => {
+    //         fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     throw new Error('Failed to fetch.');
+    //                 }
+    //                 return response.json();
+    //             })
+    //             .then(data => {
+    //                 console.log(data)
+    //                 setIsLoading(false);
+    //                 getCharactersHandler(data.results)
+    //                 getInfoHandler(data.info)
+    //             })
+    //             .catch(err => {
+    //                 console.log(err);
+    //                 setIsLoading(false);
+    //             });
+    //     }
+    //     fetchData()
+    //     // eslint-disable-next-line 
+    // }, [page]);

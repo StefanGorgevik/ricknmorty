@@ -3,10 +3,12 @@ import React, {useContext} from 'react'
 import {GlobalContext } from '../../context/GlobalState'
 
 const CharacterInfo = () => {
-    const {chosenCharacter, clickedCharacterHandler} = useContext(GlobalContext)
+    const {chosenCharacter, closeCharacterInfo} = useContext(GlobalContext)
+    console.log(chosenCharacter)
     return (
         <div className="char-info-div">
-            <p onClick={() => clickedCharacterHandler('')} className="x-p">x</p>
+            <p onClick={closeCharacterInfo} className="x-p">x</p>
+            <p>Origin: <span>{chosenCharacter.origin.name}</span></p>
             <p>Gender: <span>{chosenCharacter.gender}</span></p>
         </div>
     )
