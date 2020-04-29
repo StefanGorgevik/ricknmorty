@@ -34,4 +34,8 @@
     .main-header h1 {
         width: 70%;
     }
+    .theme-btn {
+        width: 15%;
+        margin-right: 10px;
+    }
 }
