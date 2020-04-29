@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ricknmorty/static/css/main.dca44d87.chunk.css",
-    "main.js": "/ricknmorty/static/js/main.133ce0c0.chunk.js",
-    "main.js.map": "/ricknmorty/static/js/main.133ce0c0.chunk.js.map",
+    "main.css": "/ricknmorty/static/css/main.ab01aca2.chunk.css",
+    "main.js": "/ricknmorty/static/js/main.91f66f07.chunk.js",
+    "main.js.map": "/ricknmorty/static/js/main.91f66f07.chunk.js.map",
     "runtime-main.js": "/ricknmorty/static/js/runtime-main.884bacef.js",
     "runtime-main.js.map": "/ricknmorty/static/js/runtime-main.884bacef.js.map",
     "static/js/2.322cf153.chunk.js": "/ricknmorty/static/js/2.322cf153.chunk.js",
     "static/js/2.322cf153.chunk.js.map": "/ricknmorty/static/js/2.322cf153.chunk.js.map",
     "index.html": "/ricknmorty/index.html",
-    "precache-manifest.c10f701f0b75f99cfbdc5692477b70b6.js": "/ricknmorty/precache-manifest.c10f701f0b75f99cfbdc5692477b70b6.js",
+    "precache-manifest.93a3f420623c40fd278621e6acbc0f8d.js": "/ricknmorty/precache-manifest.93a3f420623c40fd278621e6acbc0f8d.js",
     "service-worker.js": "/ricknmorty/service-worker.js",
-    "static/css/main.dca44d87.chunk.css.map": "/ricknmorty/static/css/main.dca44d87.chunk.css.map",
+    "static/css/main.ab01aca2.chunk.css.map": "/ricknmorty/static/css/main.ab01aca2.chunk.css.map",
     "static/js/2.322cf153.chunk.js.LICENSE.txt": "/ricknmorty/static/js/2.322cf153.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.884bacef.js",
     "static/js/2.322cf153.chunk.js",
-    "static/css/main.dca44d87.chunk.css",
-    "static/js/main.133ce0c0.chunk.js"
+    "static/css/main.ab01aca2.chunk.css",
+    "static/js/main.91f66f07.chunk.js"
   ]
 }
