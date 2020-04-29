@@ -9,7 +9,7 @@
     flex: 1 1 230px;
     transition: 1s;
     background-color: rgba(155, 122, 122, 0.795);
-
+    padding: 5px;
 }
 
 img {
