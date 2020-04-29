@@ -1,5 +1,4 @@
 import React, { createContext, useReducer } from 'react'
-
 export const ThemeContext = createContext()
 
 export const themeReducer = (state, action) => {
@@ -14,7 +13,7 @@ export const themeReducer = (state, action) => {
 
 export const ThemeContextProvider = ({ children }) => {
     const [theme, dispatch] = useReducer(themeReducer, {
-        isDarkTheme: true,
+        isDarkTheme: false,
         dark: {
             mainBack: "rgba(20, 20, 19, 0.822)",
             color: "rgba(177, 174, 174, 0.767)",
@@ -23,11 +22,11 @@ export const ThemeContextProvider = ({ children }) => {
             characterBack: 'rgba(87, 79, 80, 0.342)'
         },
         light: {
-            mainBack: "rgba(172, 166, 167, 0.822)",
-            color: "black",
-            headerBack: "rgb(128, 120, 120)",
+            mainBack: "rgba(237, 241, 245)",
+            color: "whitesmoke",
+            headerBack: "rgb(1, 20, 51)",
             border: '1px solid brown',
-            characterBack: 'rgba(155, 122, 122, 0.795)'
+            characterBack: 'rgba(8, 42, 97)'
         }
     })
 
