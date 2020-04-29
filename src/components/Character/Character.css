@@ -5,16 +5,11 @@
     flex-direction: row;
     margin: 15px;
     cursor: pointer;
-    background-color: rgba(87, 79, 80, 0.342);
     border-radius: 10px;
     flex: 1 1 230px;
-    color: rgba(177, 174, 174, 0.767);
     transition: 1s;
+    background-color: rgba(155, 122, 122, 0.795);
 
-}
-
-.character:hover {
-    background-color: rgba(180, 169, 169, 0.274);
 }
 
 img {
@@ -40,7 +35,6 @@ img {
     width: 60%;
     height: 100%;
     margin: 10px 20px;
-    background-color: rgba(87, 79, 80, 0.342);
     border-radius: 10px;
     padding: 10px;
 }
@@ -53,6 +47,7 @@ img {
     margin-bottom: 30px;
     width: 50%;
     color: rgba(177, 174, 174, 0.767);
+    border-radius: 10px;
 }
 
 .left-side {

@@ -27,8 +27,8 @@
     color: inherit;
     border-radius: 10px;
     cursor: pointer;
+    margin-right: 30px;
 }
-
 
 @media screen and (max-width: 700px) {
     .main-header h1 {

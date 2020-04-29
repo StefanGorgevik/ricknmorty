@@ -3,7 +3,7 @@ import './SelectPage.css'
 import { GlobalContext } from '../../context/GlobalState'
 import {SET_PAGE} from '../../reducers/CharReducer'
 const SelectPage = () => {
-    const { state, dispatch } = useContext(GlobalContext)
+    const { ui, state, dispatch } = useContext(GlobalContext)
     const info = state.info
   let pages = []
 
@@ -15,7 +15,7 @@ const SelectPage = () => {
     return (
         <div className='select-page'>
         <label htmlFor="select">Page</label>
-        <select id="select" className="pages-select" onChange={(e) =>dispatch( {type: SET_PAGE, payload: e.target.value})}>
+        <select style={{border: ui.border}} id="select" className="pages-select" onChange={(e) =>dispatch( {type: SET_PAGE, payload: e.target.value})}>
                 {pages}
             </select>
     </div>)

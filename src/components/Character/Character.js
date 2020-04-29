@@ -4,10 +4,10 @@ import CharacterInfo from '../CharacterInfo/CharacterInfo'
 import { GlobalContext } from '../../context/GlobalState'
 
 const Character = ({ char, click }) => {
-    const { state } = useContext(GlobalContext)
+    const { state, ui } = useContext(GlobalContext)
     const chosenCharacter = state.chosenCharacter
     return (
-        <div className={char.id !== chosenCharacter.id ? "character" : "selected-char"} onClick={click}>
+        <div style={{backgroundColor: ui.characterBack, color: ui.color}} className={char.id !== chosenCharacter.id ? "character" : "selected-char"} onClick={click}>
             <div className={char.id === chosenCharacter.id ? "left-side" : ""}>
                 <img src={char.image} alt="user" />
                 <p className='info-p '>{char.name}</p>

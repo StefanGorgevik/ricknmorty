@@ -14,7 +14,7 @@ const Header = () => {
           <h1>Rick n' morty</h1>  
           <Form />
           <SelectPage/>
-          <button className="theme-btn" onClick={() => dispatch({type: "SET_THEME"})}>Theme</button>
+          <button style={{border: ui.border}} className="theme-btn" onClick={() => dispatch({type: "SET_THEME"})}>Theme</button>
         </nav>
     )
 }

@@ -3,10 +3,8 @@
     flex-direction: column;
     width: 95%;
     height: 90%;
-    background-color: rgb(54, 52, 52);
     margin: 0 auto;
     padding: 10px;
-    color: rgba(177, 174, 174, 0.767);
 }
 
 .x-div {

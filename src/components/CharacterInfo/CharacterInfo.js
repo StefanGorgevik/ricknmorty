@@ -8,7 +8,6 @@ const CharacterInfo = () => {
     return (
         <div className="char-info-div">
             <div className="x-div">
-                <h1>Info</h1>
                 <p onClick={closeCharacterInfo} className="x-p">
                     <span className="x-span">x</span>
                 </p>
