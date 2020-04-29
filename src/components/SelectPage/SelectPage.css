@@ -3,10 +3,7 @@
     align-items: center;
     flex-direction: row;
     width: 20%;
-}
-
-.select-page label{ 
-    color: whitesmoke;
+    color: inherit;
 }
 
 .pages-select {
@@ -16,7 +13,7 @@
     width: 50%;
     height: 100%;
     margin: 5px 3px;
-    color:whitesmoke;
+    color:inherit;
     font-size: 20px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.034) !important;
@@ -26,21 +23,15 @@
 .option-page {
     margin:40px;
     background: rgba(0,0,0,0.8);
-    color:#fff;
+    color: inherit;
     text-shadow:0 1px 0 rgba(0,0,0,0.4);
 }
 
-.page-span {
-    text-align: center;
-    margin: 0 3px;
-    cursor: pointer;
-    background-color: rgba(34, 29, 30, 0.808);
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    color: grey;
-}
-
-.active-page {
-    color: white;
+@media screen and (max-width: 700px) {
+    .select-page  {
+        min-width: 20%;
+    }
+    .select-page label {
+        display: none;
+    }
 }

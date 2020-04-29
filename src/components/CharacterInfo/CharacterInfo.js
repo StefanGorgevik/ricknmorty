@@ -3,18 +3,22 @@ import './CharacterInfo.css'
 import { GlobalContext } from '../../context/GlobalState'
 
 const CharacterInfo = () => {
-    const { chosenCharacter, closeCharacterInfo } = useContext(GlobalContext)
-    console.log(chosenCharacter)
+    const { state, closeCharacterInfo } = useContext(GlobalContext)
+    const chosenCharacter = state.chosenCharacter
     return (
         <div className="char-info-div">
             <div className="x-div">
-                <p onClick={closeCharacterInfo} className="x-p">x</p>
+                <h1>Info</h1>
+                <p onClick={closeCharacterInfo} className="x-p">
+                    <span className="x-span">x</span>
+                </p>
             </div>
             <div className="main-info">
-                <p>Species: <span>{chosenCharacter.species}</span></p>
-                <p>Status: <span>{chosenCharacter.status}</span></p>
-                <p>Origin: <span>{chosenCharacter.origin.name}</span></p>
-                <p>Gender: <span>{chosenCharacter.gender}</span></p>
+                <p className="char-info-p">Species: <span>{chosenCharacter.species}</span></p>
+                <p className="char-info-p">Status: <span>{chosenCharacter.status}</span></p>
+                <p className="char-info-p">Location: <span>{chosenCharacter.location.name}</span></p>
+                <p className="char-info-p">Origin: <span>{chosenCharacter.origin.name}</span></p>
+                <p className="char-info-p">Gender: <span>{chosenCharacter.gender}</span></p>
             </div>
         </div>
     )

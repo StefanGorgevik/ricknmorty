@@ -2,16 +2,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(30, 29, 31, 0.815);
-    max-height: 5%;
     width: 100%;
     margin: 0 auto;
     padding: 10px 0;
     position: fixed;
     top: 0;
+    height: 40px;
+    color: rgba(24, 23, 23, 0.767);
+    background-color: rgb(128, 120, 120);
 }
 
 .main-header h1 { 
+    margin-left: 30px;
     width: 40%;
-    color: rgba(177, 174, 174, 0.767);
+    color: inherit;
+}
+
+.theme-btn {
+    width: 10%;
+    height: 30px;
+    outline: black;
+    border: 1px solid gray;
+    background-color: rgba(34, 16, 16, 0.411);
+    color: inherit;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 700px) {
+    .main-header h1 {
+        width: 70%;
+    }
 }

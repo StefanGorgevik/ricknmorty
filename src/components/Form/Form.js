@@ -2,15 +2,15 @@ import React, {useContext} from 'react'
 import './Form.css'
 
 import {GlobalContext} from '../../context/GlobalState'
+import {SET_SEARCH } from '../../reducers/CharReducer'
 
 const Form = () => {
-    const {setSearch, getCharacterByName} = useContext(GlobalContext)
+    const {dispatch, ui} = useContext(GlobalContext)
+    
     return (
-        <form onSubmit={getCharacterByName} className="form">
-            <input onChange={e => setSearch(e.target.value)}
-             type='text' id='input' className="input" placeholder="Search by name" />
-            <button className="form-btn" onClick={getCharacterByName}>Search</button>
-            <button className="form-btn" onClick={() => setSearch('')}>Clear</button>
+        <form className="form">
+            <input style={{border: ui.border }} onChange={e => dispatch({type: SET_SEARCH, payload: e.target.value })}
+             type='search' id='input' className="input" placeholder="Search by name" />
         </form>
     )
 }

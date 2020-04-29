@@ -1,24 +1,47 @@
-import React, { createContext, useState, useEffect } from 'react'
-// import {CharReducer, GET_CHARACTERS} from '../reducers/CharReducer'
+import React, { createContext, useReducer, useEffect, useContext } from 'react'
+import { CharReducer, GET_CHARACTERS, SET_INFO, SET_IS_LOADING, SET_CHOSEN_CHARACTER } from '../reducers/CharReducer'
+import {ThemeContext} from './ThemeContext'
 
 const initState = {
-    characters: []
+    characters: [],
+    info: [],
+    page: 1,
+    isLoading: false,
+    search: '',
+    chosenCharacter: '',
 }
 
 export const GlobalContext = createContext(initState)
 
 export const GlobalContextProvider = ({ children }) => {
-    const [characters, setCharacters] = useState(null);
-    const [info, setInfo] = useState(null);
-    const [page, setPage] = useState(1);
-    const [search, setSearch] = useState('1');
-    const [isLoading, setIsLoading] = useState(false);
+    const [state, dispatch] = useReducer(CharReducer, initState)
+    const {theme} = useContext(ThemeContext)
+    let ui = theme.isDarkTheme ? theme.dark : theme.light
+    useEffect(() => {
+        dispatch({ type: SET_IS_LOADING, payload: true })
+        fetch(`https://rickandmortyapi.com/api/character/?page=${state.page}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                dispatch({ type: SET_IS_LOADING, payload: false })
+                dispatch({ type: GET_CHARACTERS, payload: data.results })
+                dispatch({ type: SET_INFO, payload: data.info })
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch({ type: SET_IS_LOADING, payload: false })
+            });
+    }, [state.page])
 
-    const [chosenCharacter, setChosenCharacter] = useState('');
 
     useEffect(() => {
-        setIsLoading(true);
-        fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+        console.log('second use effect')
+        dispatch({ type: SET_IS_LOADING, payload: true })
+        fetch(`https://rickandmortyapi.com/api/character/?name=${state.search}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch.');
@@ -26,66 +49,31 @@ export const GlobalContextProvider = ({ children }) => {
                 return response.json();
             })
             .then(data => {
-                setIsLoading(false);
-                setCharacters(data.results)
-                setInfo(data.info)
+                dispatch({ type: SET_IS_LOADING, payload: false })
+                dispatch({ type: GET_CHARACTERS, payload: data.results })
             })
             .catch(err => {
                 console.log(err);
-                setIsLoading(false);
+                dispatch({ type: SET_IS_LOADING, payload: false })
             });
-    }, [page])
-
-
-    const getCharacterByName = (e) => {
-        e.preventDefault()
-        setIsLoading(true);
-        fetch(`https://rickandmortyapi.com/api/character/?name=${search}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                setIsLoading(false);
-                setCharacters(data.results)
-            })
-            .catch(err => {
-                console.log(err);
-                setIsLoading(false);
-            });
-    }
-
-    const setPageHandler = (page) => {
-        console.log(page)
-        setPage(page)
-    }
+}, [state.search])
 
     const clickedCharacterHandler = (char) => {
-        setChosenCharacter(char)
+        console.log(char)
         window.scrollTo(0, 0)
-        const chars = characters.filter(ch => ch.id !== char.id)
-        chars.unshift(char)
-        setCharacters(chars)
+        dispatch({ type: SET_CHOSEN_CHARACTER, payload: char })
+
     }
+
     const closeCharacterInfo = (e) => {
         e.stopPropagation()
-        setChosenCharacter('')
+        dispatch({ type: SET_CHOSEN_CHARACTER, payload: '' })
     }
+
 
     return (
         <GlobalContext.Provider value={{
-            characters,
-            info,
-            chosenCharacter,
-            isLoading,
-            page,
-            clickedCharacterHandler,
-            closeCharacterInfo,
-            setPageHandler,
-            setSearch,
-            getCharacterByName
+            state, ui, dispatch, clickedCharacterHandler, closeCharacterInfo
         }}>
             {children}
         </GlobalContext.Provider>

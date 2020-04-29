@@ -1,9 +1,10 @@
 .characters {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     margin: 0 auto;
+    padding: 5px 10px;
+    background-color: inherit;
 }
 
 .chars-content {
@@ -12,5 +13,6 @@
     flex-wrap: wrap;
     width: 100%;
     margin: 0 auto;
+    padding: 0 30px;
 }
 

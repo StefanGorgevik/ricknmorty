@@ -1,15 +1,20 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './Header.css'
 import Form from '../Form/Form'
 import SelectPage from '../SelectPage/SelectPage'
+import {GlobalContext} from '../../context/GlobalState'
+import {ThemeContext} from '../../context/ThemeContext'
 
 const Header = () => {
-  
+    const {ui} = useContext(GlobalContext)
+    const {dispatch} = useContext(ThemeContext)
+    
     return (
-        <nav className="main-header">
-          <h1>Rick and morty</h1>  
+        <nav  style={{background: ui.headerBack, color: ui.color}} className="main-header">
+          <h1>Rick n' morty</h1>  
           <Form />
           <SelectPage/>
+          <button className="theme-btn" onClick={() => dispatch({type: "SET_THEME"})}>Theme</button>
         </nav>
     )
 }

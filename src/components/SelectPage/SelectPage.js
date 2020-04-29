@@ -1,9 +1,10 @@
 import React, {useContext} from 'react'
 import './SelectPage.css'
 import { GlobalContext } from '../../context/GlobalState'
-
+import {SET_PAGE} from '../../reducers/CharReducer'
 const SelectPage = () => {
-    const { info, setPageHandler } = useContext(GlobalContext)
+    const { state, dispatch } = useContext(GlobalContext)
+    const info = state.info
   let pages = []
 
   if (info) {
@@ -14,7 +15,7 @@ const SelectPage = () => {
     return (
         <div className='select-page'>
         <label htmlFor="select">Page</label>
-        <select id="select" className="pages-select" onChange={(e) =>setPageHandler(e.target.value)}>
+        <select id="select" className="pages-select" onChange={(e) =>dispatch( {type: SET_PAGE, payload: e.target.value})}>
                 {pages}
             </select>
     </div>)

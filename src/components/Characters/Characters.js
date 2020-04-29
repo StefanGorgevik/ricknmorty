@@ -2,18 +2,15 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import './Characters.css'
 
-
 import Character from '../Character/Character'
 
 const Characters = () => {
     console.log('characters')
-    const { characters, info, clickedCharacterHandler, isLoading } = useContext(GlobalContext)
-
+    const { state, clickedCharacterHandler } = useContext(GlobalContext)
     let content = <p>Loading...</p>
 
-
-    if (!isLoading && characters && info) {
-        content = characters.map(char => {
+    if (!state.isLoading && state.characters && state.info) {
+        content = state.characters.map(char => {
             return <Character
                 click={() => clickedCharacterHandler(char)}
                 key={char.id}
