@@ -13,7 +13,7 @@ export const themeReducer = (state, action) => {
 
 export const ThemeContextProvider = ({ children }) => {
     const [theme, dispatch] = useReducer(themeReducer, {
-        isDarkTheme: false,
+        isDarkTheme: true,
         dark: {
             mainBack: "rgba(20, 20, 19, 0.822)",
             color: "rgba(177, 174, 174, 0.767)",
