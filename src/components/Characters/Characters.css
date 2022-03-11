@@ -63,7 +63,7 @@
 }
 
 .loader-wrapper {
-  height: 100vh;
+  height: 100%;
   padding-top: 200px;
   display: flex;
   justify-content: center;
