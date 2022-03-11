@@ -1,37 +1,38 @@
 .select-page {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 20%;
-    color: inherit;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 20%;
+  color: inherit;
 }
 
 .pages-select {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-    margin: 5px 3px;
-    color:inherit;
-    font-size: 20px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.034) !important;
-    cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 75px;
+  height: 100%;
+  margin: 5px 3px;
+  color: inherit;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.034) !important;
+  cursor: pointer;
+  padding-left: 5px;
 }
 
 .option-page {
-    margin:40px;
-    background: rgba(0,0,0,0.8);
-    color: inherit;
-    text-shadow:0 1px 0 rgba(0,0,0,0.4);
+  margin: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  color: inherit;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 @media screen and (max-width: 700px) {
-    .select-page  {
-        min-width: 20%;
-    }
-    .select-page label {
-        display: none;
-    }
+  .select-page {
+    min-width: 20%;
+  }
+  .select-page label {
+    display: none;
+  }
 }
