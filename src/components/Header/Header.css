@@ -1,41 +1,42 @@
-.main-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px 0;
-    position: fixed;
-    top: 0;
-    height: 40px;
-    color: rgba(24, 23, 23, 0.767);
-    background-color: rgb(128, 120, 120);
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  height: 40px;
+  color: rgba(24, 23, 23, 0.767);
+  background-color: rgb(128, 120, 120);
 }
 
-.main-header h1 { 
-    margin-left: 30px;
-    width: 40%;
-    color: inherit;
+.main-header h1 {
+  margin-left: 30px;
+  width: 40%;
+  color: inherit;
 }
 
 .theme-btn {
-    width: 10%;
-    height: 30px;
-    outline: black;
-    border: 1px solid gray;
-    background-color: rgba(34, 16, 16, 0.411);
-    color: inherit;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-right: 30px;
+  width: 10%;
+  height: 30px;
+  outline: black;
+  border: 1px solid gray;
+  background-color: rgba(34, 16, 16, 0.411);
+  color: inherit;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 30px;
 }
 
 @media screen and (max-width: 700px) {
-    .main-header h1 {
-        width: 70%;
-    }
-    .theme-btn {
-        width: 15%;
-        margin-right: 10px;
-    }
+  .main-header h1 {
+    width: 70%;
+    display: none;
+  }
+  .theme-btn {
+    width: 15%;
+    margin-right: 10px;
+  }
 }

@@ -1,24 +1,31 @@
-import React, {useContext} from 'react'
-import './SelectPage.css'
-import { GlobalContext } from '../../context/GlobalState'
-import {SET_PAGE} from '../../reducers/CharReducer'
+import React, { useContext } from "react";
+import "./SelectPage.css";
+import { GlobalContext } from "../../context/GlobalState";
+import { SET_PAGE } from "../../reducers/CharReducer";
 const SelectPage = () => {
-    const { ui, state, dispatch } = useContext(GlobalContext)
-    const info = state.info
-  let pages = []
+  const { state, dispatch, page } = useContext(GlobalContext);
+  const info = state.info;
+  console.log("info", info, page);
 
-  if (info) {
-    for (let i = 1; i <= info.pages; i++) {
-        pages.push(<option className="option-page" key={'page' + i} value={i}> {i}</option>)
+  const handlePageChange = (type) => {
+    let newPage;
+    if (type === "prev" && page > 1) {
+      newPage = page - 1;
+    } else if (type === "next") {
+      if (page === info.pages) return;
+      newPage = page + 1;
     }
-}
-    return (
-        <div className='select-page'>
-        <label htmlFor="select">Page</label>
-        <select style={{border: ui.border}} id="select" className="pages-select" onChange={(e) =>dispatch( {type: SET_PAGE, payload: e.target.value})}>
-                {pages}
-            </select>
-    </div>)
-}
+    dispatch({ type: SET_PAGE, payload: newPage });
+  };
+  return (
+    <div className="select-page">
+      <div className="pagination">
+        <span onClick={() => handlePageChange("prev")}>{"<"}</span>
+        <span>{page}</span>
+        <span onClick={() => handlePageChange("next")}>{">"}</span>
+      </div>
+    </div>
+  );
+};
 
-export default SelectPage
+export default SelectPage;

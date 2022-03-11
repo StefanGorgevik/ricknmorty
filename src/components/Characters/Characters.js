@@ -5,30 +5,21 @@ import "./Characters.css";
 import Character from "../Character/Character";
 
 const Characters = () => {
-  console.log("characters");
-  const { state, clickedCharacterHandler } = useContext(GlobalContext);
-  let content = (
-    <div className="loader-wrapper">
-      <div className="lds-hourglass"></div>
-    </div>
-  );
-
-  if (!state.isLoading && state.characters && state.info) {
-    content = state.characters.map((char) => {
-      return (
-        <Character
-          click={() => clickedCharacterHandler(char)}
-          key={char.id}
-          id={char.id}
-          char={char}
-        />
-      );
-    });
-  }
+  const { state } = useContext(GlobalContext);
+  if (state.isLoading)
+    return (
+      <div className="loader-wrapper">
+        <div className="lds-hourglass"></div>
+      </div>
+    );
 
   return (
-    <div className="characters">
-      <div className="chars-content">{content}</div>
+    <div className="chars-content">
+      {state.characters &&
+        state.info &&
+        state.characters.map((char) => (
+          <Character key={char.id} id={char.id} char={char} />
+        ))}
     </div>
   );
 };
